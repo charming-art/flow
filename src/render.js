@@ -10,8 +10,10 @@ export function context2d(width = 640, height = 480, dpr = null) {
   return context;
 }
 
-export function render({width = 640, height = 480, init} = {}) {
+export function render({width = 640, height = 480, setup} = {}) {
   const context = context2d(width, height);
-  init(context);
+  const data = setup();
+  const {transform, I, ...value} = data;
+  transform(I, value, context);
   return context.canvas;
 }
