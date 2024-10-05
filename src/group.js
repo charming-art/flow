@@ -1,9 +1,8 @@
 export function group(...flows) {
-  return () => {
+  return (data) => {
     const transform = (context) => {
       for (const flow of flows) {
-        const data = flow();
-        const {I, transform, ...value} = data;
+        const {I, transform, ...value} = flow(data);
         transform(context, I, value);
       }
     };
