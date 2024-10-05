@@ -13,7 +13,10 @@ export function context2d(width = 640, height = 480, dpr = null) {
 export function render({width = 640, height = 480, setup} = {}) {
   const context = context2d(width, height);
   const data = setup();
-  const {transform, I, ...value} = data;
-  transform(context, I, value);
+  const datalist = (Array.isArray(data) ? data : [data]).flat(Infinity);
+  for (const flow of datalist) {
+    const {transform, I, ...value} = flow;
+    transform(context, I, value);
+  }
   return context.canvas;
 }
