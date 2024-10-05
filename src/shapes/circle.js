@@ -4,7 +4,7 @@ function attribute(value, datum) {
 }
 
 export function circle({x, y, fill, r}) {
-  return (data) => {
+  return (data = [0]) => {
     const I = Array.from({length: data.length}, (_, i) => i);
     const X = I.map((i) => attribute(x, data[i]));
     const Y = I.map((i) => attribute(y, data[i]));
