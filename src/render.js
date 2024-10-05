@@ -14,6 +14,6 @@ export function render({width = 640, height = 480, setup} = {}) {
   const context = context2d(width, height);
   const data = setup();
   const {transform, I, ...value} = data;
-  transform(I, value, context);
+  transform(context, I, value);
   return context.canvas;
 }
