@@ -5,3 +5,5 @@ export {map} from "./process/map.js";
 export {group} from "./group.js";
 export {circle} from "./shapes/circle.js";
 export {background} from "./shapes/background.js";
+export {mapColumn} from "./transform/mapColumn.js";
+export {scaleLinear} from "./scale/scaleLinear.js";
